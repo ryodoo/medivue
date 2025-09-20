@@ -1,7 +1,7 @@
-<div class="users form">
-	<?php echo $this->Form->create('User'); ?>
+<div class="medecins form">
+	<?php echo $this->Form->create('Medecin'); ?>
 	<div class="page-header">
-		<h1 class="title-page">User</h1>
+		<h1 class="title-page">Medecin</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -11,32 +11,22 @@
 			<div class="row">
 					<div class='col-12'>
 	<?php
-		echo $this->Form->input('role_id', array('placeholder'=>''));
+		echo $this->Form->input('nom', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('name', array('placeholder'=>''));
+		echo $this->Form->input('prenom', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('username', array('placeholder'=>''));
+		echo $this->Form->input('contact', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('password', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('etat', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('code', array('placeholder'=>''));
+		echo $this->Form->input('remarque', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>

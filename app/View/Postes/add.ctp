@@ -1,7 +1,7 @@
-<div class="users form">
-	<?php echo $this->Form->create('User'); ?>
+<div class="postes form">
+	<?php echo $this->Form->create('Poste'); ?>
 	<div class="page-header">
-		<h1 class="title-page">User</h1>
+		<h1 class="title-page">Poste</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -11,27 +11,7 @@
 			<div class="row">
 					<div class='col-12'>
 	<?php
-		echo $this->Form->input('role_id', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
 		echo $this->Form->input('name', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('username', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('password', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('etat', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>

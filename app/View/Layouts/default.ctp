@@ -73,273 +73,83 @@
 		<!-- Navigation -->
 		<div class="sidebar-nav">
 			<ul class="nav flex-column">
-
-				<?php
-				if (AuthComponent::user("Role.role") === 'Agence'): ?>
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#agence" aria-expanded="false">
-							<?php echo $bons_commande_icon; ?> Billets d’avion
-						</button>
-						<div class="collapse" id="agence">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'<i class="fa-solid fa-spinner me-2"></i> Demandes en cours',
-									array('controller' => 'volreservations', 'action' => 'agence_index'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-								echo $this->Html->link(
-									'<i class="fa-light fa-circle-check me-2"></i>Billets émis',
-									array('controller' => 'volreservations', 'action' => 'agence_valider'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-
-								echo $this->Html->link(
-									'<i class="fa-light fa-circle-xmark me-2"></i>Demandes annulées ',
-									array('controller' => 'volreservations', 'action' => 'agence_annuler'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-
-								?>
-							</div>
-						</div>
-					</li>
-				<?php endif; ?>
-
-				<?php
-				if (!in_array(AuthComponent::user("Role.role"), ['Agence', 'Admin'])): ?>
+				<!-- Dashboard -->
 				<li class="nav-item">
-						<?php
-						echo $this->Html->link(
-							$dashboard_icon . ' Dashboard',
-							array('controller' => 'users', 'action' => 'dashboard'),
-							array('class' => 'nav-link', 'escape' => false)
-						); ?>
-					</li>
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#reservationsDropdown" aria-expanded="false">
-							<?php echo $reservations_icon; ?>
-							Billets d’avion
-						</button>
-						<div class="collapse" id="reservationsDropdown">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'<i class="fa-regular fa-plus me-2"></i>Demande de billet d’avion',
-									array('controller' => 'volreservations', 'action' => 'add'),
-									array('class' => 'dropdown-item', 'escape' => false)
+					<?php
+					echo $this->Html->link(
+						$dashboard_icon . ' Dashboard',
+						array('controller' => 'users', 'action' => 'dashboard'),
+						array('class' => 'nav-link', 'escape' => false)
+					); ?>
+				</li>
+				<!-- Demandes de set -->
+				<li class="nav-item">
+					<?php
+					echo $this->Html->link(
+						 ' ajouter une demande',
+						array('controller' => 'affectations', 'action' => 'add'),
+						array('class' => 'nav-link', 'escape' => false)
+					); ?>
+				</li>
 
-								); ?>
-								<?php echo $this->Html->link(
-									$demande_hotel_icon . 'Historique des billets d’avion',
-									array('controller' => 'volreservations', 'action' => 'agent_index'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								); ?>
-							</div>
+				<!-- Paramètres -->
+				<li class="nav-item dropdown">
+					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
+						data-bs-target="#parametres" aria-expanded="false">
+						<?php echo $parametres_icon; ?>
+						Paramètres
+					</button>
+					<div class="collapse" id="parametres">
+						<div class="dropdown-menu show">
+							<?php echo $this->Html->link(
+								'Gestion des utilisateurs',
+								array('controller' => 'users', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des rôles',
+								array('controller' => 'roles', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des sets',
+								array('controller' => 'sets', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des compositions de sets',
+								array('controller' => 'compositions', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des instruments',
+								array('controller' => 'instruments', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des fournisseurs',
+								array('controller' => 'fournisseurs', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des medecins',
+								array('controller' => 'medecins', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Gestion des machines',
+								array('controller' => 'machines', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'Liste des anomalies',
+								array('controller' => 'anomalies', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							?>
 						</div>
-					</li>
-
-					<!-- Bons de commande Dropdown -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#commandesDropdown" aria-expanded="false">
-							<?php echo $bons_commande_icon; ?>
-							Réservations d’hôtels
-						</button>
-						<div class="collapse" id="commandesDropdown">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'<i class="fa-regular fa-plus me-2"></i> Demande d’hôtel',
-									array('controller' => 'reservations', 'action' => 'add'),
-									array('class' => 'dropdown-item', 'escape' => false)
-
-								);
-								echo $this->Html->link(
-									$demande_hotel_icon . 'Mes demandes d\'hôtel',
-									array('controller' => 'reservations', 'action' => 'agent_index'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								); ?>
-							</div>
-						</div>
-					</li>
-				<?php endif; ?>
-
-
-				<?php if (AuthComponent::user("Role.role") === 'Admin'): ?>
-					<!-- Dashboard -->
-					<li class="nav-item">
-						<?php
-						echo $this->Html->link(
-							$dashboard_icon . ' Dashboard',
-							array('controller' => 'users', 'action' => 'dashboard'),
-							array('class' => 'nav-link', 'escape' => false)
-						); ?>
-					</li>
-
-					<!-- Réservations Dropdown -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#reservationsDropdown" aria-expanded="false">
-							<?php echo $reservations_icon; ?>
-							Billets d’avion
-						</button>
-						<div class="collapse" id="reservationsDropdown">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'<i class="fa-regular fa-plus me-2"></i>Demande de billet d’avion',
-									array('controller' => 'volreservations', 'action' => 'add'),
-									array('class' => 'dropdown-item', 'escape' => false)
-
-								);
-								echo $this->Html->link(
-									$billetterie_icon .
-										' Historique des billets d’avion',
-									array('controller' => 'volreservations', 'action' => 'index'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-								?>
-							</div>
-						</div>
-					</li>
-
-					<!-- Bons de commande Dropdown -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#commandesDropdown" aria-expanded="false">
-							<?php echo $bons_commande_icon; ?>
-							Réservations d’hôtels
-						</button>
-						<div class="collapse" id="commandesDropdown">
-							<div class="dropdown-menu show">
-								<?php
-								echo $this->Html->link(
-									'<i class="fa-regular fa-plus me-2"></i> Demande d’hôtel',
-									array('controller' => 'reservations', 'action' => 'add'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-								echo $this->Html->link(
-									$demande_hotel_icon .
-										' Réservations d’hôtels',
-									array('controller' => 'reservations', 'action' => 'index'),
-									array('class' => 'dropdown-item', 'escape' => false)
-								);
-								?>
-
-							</div>
-						</div>
-					</li>
-
-					<!-- Parc automobile Dropdown -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#parcDropdown" aria-expanded="false">
-							<i class="fas fa-car"></i>
-							Parc automobile
-						</button>
-						<div class="collapse" id="parcDropdown">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'Liste des véhicules',
-									array('controller' => 'voitures', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								); ?>
-								<?php echo $this->Html->link(
-									'Requêtes collaborateurs',
-									array('controller' => 'parc', 'action' => 'requetes_collaborateurs'),
-									array('class' => 'dropdown-item')
-								); ?>
-								<?php echo $this->Html->link(
-									'Calendrier contrats',
-									array('controller' => 'voitures', 'action' => 'calendrier'),
-									array('class' => 'dropdown-item')
-								); ?>
-								<?php echo $this->Html->link(
-									'Suivi des cartes carburant',
-									array('controller' => 'cartecarburants', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								); ?>
-								<?php echo $this->Html->link(
-									'Suivi des Tag Jawaz',
-									array('controller' => 'tagjawazs', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								); ?>
-								<?php echo $this->Html->link(
-									'Référentiel de prix',
-									array('controller' => 'referentiels', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								); ?>
-							</div>
-						</div>
-					</li>
-
-					<!-- Appartements Dropdown -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#appartementsDropdown" aria-expanded="false">
-							<i class="fas fa-building"></i>
-							Appartements
-						</button>
-						<div class="collapse" id="appartementsDropdown">
-							<div class="dropdown-menu show">
-								<?php
-								echo $this->Html->link(
-									'Disponibilités',
-									array('controller' => 'appartements', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Affectations',
-									array('controller' => 'beneficiaires', 'action' => 'add'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Historique logements',
-									array('controller' => 'beneficiaires', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								); ?>
-							</div>
-						</div>
-					</li>
-
-					<!-- Paramètres -->
-					<li class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-							data-bs-target="#parametres" aria-expanded="false">
-							<?php echo $parametres_icon; ?>
-							Paramètres
-						</button>
-						<div class="collapse" id="parametres">
-							<div class="dropdown-menu show">
-								<?php echo $this->Html->link(
-									'Gestion des utilisateurs',
-									array('controller' => 'users', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Gestion des rôles',
-									array('controller' => 'roles', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Gestion des sites',
-									array('controller' => 'sites', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Gestion des villes',
-									array('controller' => 'villes', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								echo $this->Html->link(
-									'Gestion des hôtels',
-									array('controller' => 'hotels', 'action' => 'index'),
-									array('class' => 'dropdown-item')
-								);
-								?>
-							</div>
-						</div>
-					</li>
-				<?php endif; ?>
+					</div>
+				</li>
 
 			</ul>
 		</div>

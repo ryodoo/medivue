@@ -1,7 +1,7 @@
-<div class="users form">
-	<?php echo $this->Form->create('User'); ?>
+<div class="compositions form">
+	<?php echo $this->Form->create('Composition'); ?>
 	<div class="page-header">
-		<h1 class="title-page">User</h1>
+		<h1 class="title-page">Composition</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -16,7 +16,17 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('role_id', array('placeholder'=>''));
+		echo $this->Form->input('fournisseur_id', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('set_id', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('ref', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
@@ -26,22 +36,22 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('username', array('placeholder'=>''));
+		echo $this->Form->input('images', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('password', array('placeholder'=>''));
+		echo $this->Form->input('remarque', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('etat', array('placeholder'=>''));
+		echo $this->Form->input('emplacement', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('code', array('placeholder'=>''));
+		echo $this->Form->input('status', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>

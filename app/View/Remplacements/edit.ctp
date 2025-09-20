@@ -1,7 +1,7 @@
-<div class="users form">
-	<?php echo $this->Form->create('User'); ?>
+<div class="remplacements form">
+	<?php echo $this->Form->create('Remplacement'); ?>
 	<div class="page-header">
-		<h1 class="title-page">User</h1>
+		<h1 class="title-page">Remplacement</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -16,32 +16,22 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('role_id', array('placeholder'=>''));
+		echo $this->Form->input('user_id', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('name', array('placeholder'=>''));
+		echo $this->Form->input('instrument_source_id', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('username', array('placeholder'=>''));
+		echo $this->Form->input('instrument_cible_id', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('password', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('etat', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('code', array('placeholder'=>''));
+		echo $this->Form->input('motif', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>
