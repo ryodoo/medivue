@@ -86,7 +86,7 @@
 				<li class="nav-item">
 					<?php
 					echo $this->Html->link(
-						 ' ajouter une demande',
+						'ajouter une demande',
 						array('controller' => 'affectations', 'action' => 'add'),
 						array('class' => 'nav-link', 'escape' => false)
 					); ?>
@@ -144,6 +144,22 @@
 							echo $this->Html->link(
 								'Liste des anomalies',
 								array('controller' => 'anomalies', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+
+							echo $this->Html->link(
+								'Liste des spécialités',
+								array('controller' => 'specialites', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'La liste des affectations',
+								array('controller' => 'affectations', 'action' => 'index'),
+								array('class' => 'dropdown-item')
+							);
+							echo $this->Html->link(
+								'La liste des etapes',
+								array('controller' => 'etapes', 'action' => 'index'),
 								array('class' => 'dropdown-item')
 							);
 							?>
@@ -239,8 +255,10 @@
 	</div>
 
 	<!-- loading  -->
-	<div id="loadingOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; justify-content:center; align-items:center;">
-		<img src="https://akdital.ma/wp-content/themes/docmet/images/loader3.svg" alt="Loading..." style="width:100px; height:100px;">
+	<div id="loadingOverlay"
+		style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; justify-content:center; align-items:center;">
+		<img src="https://akdital.ma/wp-content/themes/docmet/images/loader3.svg" alt="Loading..."
+			style="width:100px; height:100px;">
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -251,7 +269,7 @@
 
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', function () {
 			// Handle active states based on current URL
 			const currentController = '<?php echo $this->request->controller; ?>';
 			const currentAction = '<?php echo $this->request->action; ?>';
@@ -299,11 +317,11 @@
 			const sidebar = document.querySelector('.sidebar');
 
 			if (sidebarToggle && sidebar) {
-				sidebarToggle.addEventListener('click', function() {
+				sidebarToggle.addEventListener('click', function () {
 					sidebar.classList.toggle('show');
 				});
 
-				document.addEventListener('click', function(e) {
+				document.addEventListener('click', function (e) {
 					if (window.innerWidth <= 768) {
 						if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
 							sidebar.classList.remove('show');
@@ -319,13 +337,13 @@
 
 		});
 
-		window.addEventListener('beforeunload', function() {
+		window.addEventListener('beforeunload', function () {
 			const loader = document.getElementById('loadingOverlay');
 			if (loader) loader.style.display = 'flex';
 		});
 
 		// Handle browser back/forward cache
-		window.addEventListener('pageshow', function(event) {
+		window.addEventListener('pageshow', function (event) {
 			const loader = document.getElementById('loadingOverlay');
 			if (event.persisted && loader) {
 				loader.style.display = 'none';

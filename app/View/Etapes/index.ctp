@@ -18,6 +18,7 @@
 		<thead>
 			<tr>
 																								<th>name</th>
+																				<th>description</th>
 																				<th>ordre</th>
 													<th class="actions">Actions</th>
 			</tr>
@@ -26,6 +27,7 @@
 			<?php foreach ($etapes as $etape): ?>
 	<tr>
 		<td><?php echo $etape['Etape']['name']; ?></td>
+		<td><?php echo $etape['Etape']['description']; ?></td>
 		<td><?php echo $etape['Etape']['ordre']; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $etape['Etape']['id'])); ?> / 

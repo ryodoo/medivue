@@ -1,3 +1,8 @@
+<label style="color: #d74747ff;">Affectation d'une set ou composition à une spécialité et un médecin
+<br>
+comme affecté une composition ou set a une spécialité ou un medecins
+</label>
+
 <div class="affectations form">
 	<?php echo $this->Form->create('Affectation'); ?>
 	<div class="page-header">

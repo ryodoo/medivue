@@ -17,8 +17,7 @@
 	<table class="table table-akdital">
 		<thead>
 			<tr>
-																								<th>nom</th>
-																				<th>prenom</th>
+																								<th>name</th>
 																				<th>contact</th>
 																				<th>remarque</th>
 													<th class="actions">Actions</th>
@@ -27,8 +26,7 @@
 		<tbody>
 			<?php foreach ($medecins as $medecin): ?>
 	<tr>
-		<td><?php echo $medecin['Medecin']['nom']; ?></td>
-		<td><?php echo $medecin['Medecin']['prenom']; ?></td>
+		<td><?php echo $medecin['Medecin']['name']; ?></td>
 		<td><?php echo $medecin['Medecin']['contact']; ?></td>
 		<td><?php echo $medecin['Medecin']['remarque']; ?></td>
 		<td class="actions">

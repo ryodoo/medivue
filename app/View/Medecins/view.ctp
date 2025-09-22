@@ -16,14 +16,8 @@
 				<div class="row row-gap-3">
 					<div class="col-md-3">
 	<div class="info">
-		<label><?php echo __('Nom'); ?></label>
-		<span><?php echo h($medecin['Medecin']['nom']); ?></span>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="info">
-		<label><?php echo __('Prenom'); ?></label>
-		<span><?php echo h($medecin['Medecin']['prenom']); ?></span>
+		<label><?php echo __('Name'); ?></label>
+		<span><?php echo h($medecin['Medecin']['name']); ?></span>
 	</div>
 </div>
 <div class="col-md-3">

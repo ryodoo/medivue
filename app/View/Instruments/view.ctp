@@ -92,6 +92,24 @@
 </div>
 <div class="col-md-3">
 	<div class="info">
+		<label><?php echo __('Image'); ?></label>
+		<span><?php echo h($instrument['Instrument']['image']); ?></span>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="info">
+		<label><?php echo __('Coordonnees Image'); ?></label>
+		<span><?php echo h($instrument['Instrument']['coordonnees_image']); ?></span>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="info">
+		<label><?php echo __('Type Lavage'); ?></label>
+		<span><?php echo h($instrument['Instrument']['type_lavage']); ?></span>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="info">
 		<label><?php echo __('Created'); ?></label>
 		<span><?php echo h($instrument['Instrument']['created']); ?></span>
 	</div>

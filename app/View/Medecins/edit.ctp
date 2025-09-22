@@ -16,12 +16,7 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('nom', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('prenom', array('placeholder'=>''));
+		echo $this->Form->input('name', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>

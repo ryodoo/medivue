@@ -29,6 +29,9 @@
 																				<th>date_ajout</th>
 																				<th>taille</th>
 																				<th>remarque</th>
+																				<th>image</th>
+																				<th>coordonnees_image</th>
+																				<th>type_lavage</th>
 																				<th>created</th>
 													<th class="actions">Actions</th>
 			</tr>
@@ -52,6 +55,9 @@
 		<td><?php echo $instrument['Instrument']['date_ajout']; ?></td>
 		<td><?php echo $instrument['Instrument']['taille']; ?></td>
 		<td><?php echo $instrument['Instrument']['remarque']; ?></td>
+		<td><?php echo $instrument['Instrument']['image']; ?></td>
+		<td><?php echo $instrument['Instrument']['coordonnees_image']; ?></td>
+		<td><?php echo $instrument['Instrument']['type_lavage']; ?></td>
 		<td><?php echo $instrument['Instrument']['created']; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $instrument['Instrument']['id'])); ?> / 

@@ -18,7 +18,7 @@
 	<div class="info">
 		<label>Set</label>
 		<span>
-			<?php echo $this->Html->link($affectation['Set']['id'], array('controller' => 'sets', 'action' => 'view', $affectation['Set']['id'])); ?>
+			<?php echo $this->Html->link($affectation['Set']['nom'], array('controller' => 'sets', 'action' => 'view', $affectation['Set']['id'])); ?>
 		</span>
 	</div>
 </div>
@@ -34,7 +34,7 @@
 	<div class="info">
 		<label>Medecin</label>
 		<span>
-			<?php echo $this->Html->link($affectation['Medecin']['id'], array('controller' => 'medecins', 'action' => 'view', $affectation['Medecin']['id'])); ?>
+			<?php echo $this->Html->link($affectation['Medecin']['name'], array('controller' => 'medecins', 'action' => 'view', $affectation['Medecin']['id'])); ?>
 		</span>
 	</div>
 </div>

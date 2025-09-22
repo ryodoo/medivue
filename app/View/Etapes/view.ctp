@@ -22,6 +22,12 @@
 </div>
 <div class="col-md-3">
 	<div class="info">
+		<label><?php echo __('Description'); ?></label>
+		<span><?php echo h($etape['Etape']['description']); ?></span>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="info">
 		<label><?php echo __('Ordre'); ?></label>
 		<span><?php echo h($etape['Etape']['ordre']); ?></span>
 	</div>

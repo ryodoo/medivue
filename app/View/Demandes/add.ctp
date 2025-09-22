@@ -1,7 +1,7 @@
-<div class="medecins form">
-	<?php echo $this->Form->create('Medecin'); ?>
+<div class="demandes form">
+	<?php echo $this->Form->create('Demande'); ?>
 	<div class="page-header">
-		<h1 class="title-page">Medecin</h1>
+		<h1 class="title-page">Demande</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -11,17 +11,27 @@
 			<div class="row">
 					<div class='col-12'>
 	<?php
-		echo $this->Form->input('name', array('placeholder'=>''));
+		echo $this->Form->input('user_id', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('contact', array('placeholder'=>''));
+		echo $this->Form->input('specialite_id', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('medecin_id', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
 		echo $this->Form->input('remarque', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('etat', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>

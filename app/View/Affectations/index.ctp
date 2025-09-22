@@ -30,13 +30,13 @@
 			<?php foreach ($affectations as $affectation): ?>
 	<tr>
 		<td>
-			<?php echo $this->Html->link($affectation['Set']['id'], array('controller' => 'sets', 'action' => 'view', $affectation['Set']['id'])); ?>
+			<?php echo $this->Html->link($affectation['Set']['nom'], array('controller' => 'sets', 'action' => 'view', $affectation['Set']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($affectation['Specialite']['name'], array('controller' => 'specialites', 'action' => 'view', $affectation['Specialite']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($affectation['Medecin']['id'], array('controller' => 'medecins', 'action' => 'view', $affectation['Medecin']['id'])); ?>
+			<?php echo $this->Html->link($affectation['Medecin']['name'], array('controller' => 'medecins', 'action' => 'view', $affectation['Medecin']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($affectation['Composition']['name'], array('controller' => 'compositions', 'action' => 'view', $affectation['Composition']['id'])); ?>

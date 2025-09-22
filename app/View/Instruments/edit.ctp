@@ -74,6 +74,21 @@
 		echo $this->Form->input('remarque', array('placeholder'=>''));
 	?>
 	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('image', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('coordonnees_image', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
+		echo $this->Form->input('type_lavage', array('placeholder'=>''));
+	?>
+	</div>
 					<div class='submit-section'>
 	<button type="submit" class="btn btn-submit">
 		<i class="fa-solid fa-paper-plane"></i> Envoyer

@@ -16,6 +16,11 @@
 	</div>
 	<div class='col-12'>
 	<?php
+		echo $this->Form->input('description', array('placeholder'=>''));
+	?>
+	</div>
+	<div class='col-12'>
+	<?php
 		echo $this->Form->input('ordre', array('placeholder'=>''));
 	?>
 	</div>
