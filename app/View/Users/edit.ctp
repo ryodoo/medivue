@@ -41,7 +41,7 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('code', array('placeholder'=>''));
+		echo $this->Form->input('ref', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>

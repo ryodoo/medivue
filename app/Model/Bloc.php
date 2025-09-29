@@ -1,14 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Role Model
+ * Bloc Model
  *
- * @property User $User
+ * @property Demande $Demande
  */
-class Role extends AppModel {
+class Bloc extends AppModel {
 
-
-	public $displayField = 'role';
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'name';
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -19,9 +23,9 @@ class Role extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'role_id',
+		'Demande' => array(
+			'className' => 'Demande',
+			'foreignKey' => 'bloc_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

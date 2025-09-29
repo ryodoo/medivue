@@ -33,13 +33,6 @@ class Composition extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Set' => array(
-			'className' => 'Set',
-			'foreignKey' => 'set_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 

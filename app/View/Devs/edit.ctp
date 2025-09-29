@@ -1,7 +1,7 @@
-<div class="sets form">
-	<?php echo $this->Form->create('Set'); ?>
+<div class="devs form">
+	<?php echo $this->Form->create('Dev'); ?>
 	<div class="page-header">
-		<h1 class="title-page">Set</h1>
+		<h1 class="title-page">Dev</h1>
 		<span class="slogan"></span>
 	</div>
 	<div class="row">
@@ -16,32 +16,27 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('fournisseur_id', array('placeholder'=>''));
+		echo $this->Form->input('user', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('ref', array('placeholder'=>''));
+		echo $this->Form->input('commentaire', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('nom', array('placeholder'=>''));
+		echo $this->Form->input('lien', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('emplacements', array('placeholder'=>''));
+		echo $this->Form->input('controller', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('status', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('instruction', array('placeholder'=>''));
+		echo $this->Form->input('view', array('placeholder'=>''));
 	?>
 	</div>
 					<div class='submit-section'>

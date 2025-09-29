@@ -8,24 +8,18 @@ App::uses('AppModel', 'Model');
  * @property Medecin $Medecin
  * @property Composition $Composition
  */
-class Affectation extends AppModel {
+class Affectation extends AppModel
+{
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array
+	 */
 	public $belongsTo = array(
-		'Set' => array(
-			'className' => 'Set',
-			'foreignKey' => 'set_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Specialite' => array(
 			'className' => 'Specialite',
 			'foreignKey' => 'specialite_id',

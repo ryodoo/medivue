@@ -63,8 +63,7 @@ class CompositionsController extends AppController
 		$outils = new OutilsController();
 		$this->request->data['Composition']['ref'] = $outils->generatecodebar('set');
 		$fournisseurs = $this->Composition->Fournisseur->find('list');
-		$sets = $this->Composition->Set->find('list');
-		$this->set(compact('fournisseurs', 'sets'));
+		$this->set(compact('fournisseurs'));
 	}
 
 	/**
@@ -91,8 +90,7 @@ class CompositionsController extends AppController
 			$this->request->data = $this->Composition->find('first', $options);
 		}
 		$fournisseurs = $this->Composition->Fournisseur->find('list');
-		$sets = $this->Composition->Set->find('list');
-		$this->set(compact('fournisseurs', 'sets'));
+		$this->set(compact('fournisseurs'));
 	}
 
 	/**
@@ -114,5 +112,20 @@ class CompositionsController extends AppController
 			$this->Flash->error(__('The composition could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+
+
+	function check_and_update($id, $status)
+	{
+		if (!$this->Composition->exists($id)) {
+			throw new NotFoundException(__('Invalid composition'));
+		}
+		$this->Composition->id = $id;
+		if ($this->Composition->saveField('status', $status)) {
+			return $this->Composition->findById($id);
+		} else {
+			return false;
+		}
 	}
 }

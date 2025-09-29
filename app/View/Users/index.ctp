@@ -22,8 +22,8 @@
 																				<th>username</th>
 																				<th>password</th>
 																				<th>etat</th>
+																				<th>ref</th>
 																				<th>created</th>
-																				<th>code</th>
 													<th class="actions">Actions</th>
 			</tr>
 		</thead>
@@ -31,14 +31,14 @@
 			<?php foreach ($users as $user): ?>
 	<tr>
 		<td>
-			<?php echo $this->Html->link($user['Role']['id'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
+			<?php echo $this->Html->link($user['Role']['role'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
 		</td>
 		<td><?php echo $user['User']['name']; ?></td>
 		<td><?php echo $user['User']['username']; ?></td>
 		<td><?php echo $user['User']['password']; ?></td>
 		<td><?php echo $user['User']['etat']; ?></td>
+		<td><?php echo $user['User']['ref']; ?></td>
 		<td><?php echo $user['User']['created']; ?></td>
-		<td><?php echo $user['User']['code']; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?> / 
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?> /

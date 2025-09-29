@@ -21,12 +21,7 @@
 	</div>
 	<div class='col-12'>
 	<?php
-		echo $this->Form->input('set_id', array('placeholder'=>''));
-	?>
-	</div>
-	<div class='col-12'>
-	<?php
-		echo $this->Form->input('ref', array('placeholder'=>''));
+		echo $this->Form->input('code', array('placeholder'=>''));
 	?>
 	</div>
 	<div class='col-12'>

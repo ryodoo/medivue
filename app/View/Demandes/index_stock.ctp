@@ -5,7 +5,7 @@
 </div>
 <div class="col-md-5">
 	<div class="search-section">
-			
+
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
 			<input type="text" class="form-control" id="search_input" placeholder="Rechercher" aria-label="Search">
@@ -20,6 +20,7 @@
 		<thead>
 			<tr>
 				<th>user_id</th>
+				<th>Bloc opératoire</th>
 				<th>specialite_id</th>
 				<th>medecin_id</th>
 				<th>remarque</th>
@@ -32,13 +33,13 @@
 			<?php foreach ($demandes as $demande): ?>
 				<tr>
 					<td>
-						<?php echo $this->Html->link($demande['User']['name'], array('controller' => 'users', 'action' => 'view', $demande['User']['id'])); ?>
+						<?php echo $demande['User']['name']; ?>
 					</td>
 					<td>
-						<?php echo $this->Html->link($demande['Specialite']['name'], array('controller' => 'specialites', 'action' => 'view', $demande['Specialite']['id'])); ?>
+						<?php echo $demande['Bloc']['name']; ?>
 					</td>
 					<td>
-						<?php echo $this->Html->link($demande['Medecin']['name'], array('controller' => 'medecins', 'action' => 'view', $demande['Medecin']['id'])); ?>
+						<?php echo $demande['Medecin']['name']?>
 					</td>
 					<td><?php echo $demande['Demande']['remarque']; ?></td>
 					<td><?php echo $demande['Demande']['etat']; ?></td>

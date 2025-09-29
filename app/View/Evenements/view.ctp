@@ -64,14 +64,6 @@
 </div>
 <div class="col-md-3">
 	<div class="info">
-		<label>Set</label>
-		<span>
-			<?php echo $this->Html->link($evenement['Set']['id'], array('controller' => 'sets', 'action' => 'view', $evenement['Set']['id'])); ?>
-		</span>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="info">
 		<label><?php echo __('Remarque'); ?></label>
 		<span><?php echo h($evenement['Evenement']['remarque']); ?></span>
 	</div>

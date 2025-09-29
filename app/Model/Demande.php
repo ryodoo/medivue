@@ -4,9 +4,10 @@ App::uses('AppModel', 'Model');
  * Demande Model
  *
  * @property User $User
+ * @property Bloc $Bloc
  * @property Specialite $Specialite
  * @property Medecin $Medecin
- * @property Demandeset $Demandeset
+ * @property Demandecomposition $Demandecomposition
  */
 class Demande extends AppModel {
 
@@ -22,6 +23,13 @@ class Demande extends AppModel {
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Bloc' => array(
+			'className' => 'Bloc',
+			'foreignKey' => 'bloc_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -48,8 +56,8 @@ class Demande extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Demandeset' => array(
-			'className' => 'Demandeset',
+		'Demandecomposition' => array(
+			'className' => 'Demandecomposition',
 			'foreignKey' => 'demande_id',
 			'dependent' => false,
 			'conditions' => '',

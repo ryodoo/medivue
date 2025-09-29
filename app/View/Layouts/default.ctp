@@ -82,16 +82,39 @@
 						array('class' => 'nav-link', 'escape' => false)
 					); ?>
 				</li>
-				<!-- Demandes de set -->
-				<li class="nav-item">
-					<?php
-					echo $this->Html->link(
-						'ajouter une demande',
-						array('controller' => 'affectations', 'action' => 'add'),
-						array('class' => 'nav-link', 'escape' => false)
-					); ?>
+				<!-- Zone Stokage -->
+				<li class="nav-item dropdown">
+					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
+						data-bs-target="#parametres" aria-expanded="false">
+						<?php echo $parametres_icon; ?>
+						Zone Stokage
+					</button>
+					<div class="collapse" id="parametres">
+						<div class="dropdown-menu show">
+							<?php echo $this->Html->link(
+								'Liste des demandes',
+								array('controller' => 'demandes', 'action' => 'index_stock'),
+								array('class' => 'dropdown-item')
+							); ?>
+						</div>
+					</div>
 				</li>
-
+				<!-- Bloc opératoire -->
+				<li class="nav-item dropdown">
+					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
+						data-bs-target="#parametres" aria-expanded="false">
+						<?php echo $parametres_icon; ?>
+						Bloc opératoire
+					</button>
+					<div class="collapse" id="parametres">
+						<div class="dropdown-menu show">
+							<?php
+							echo $this->Html->link('Liste des demandes', array('controller' => 'demandes', 'action' => 'index_bloc'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('ajouter une demande', array('controller' => 'demandes', 'action' => 'add'), array('class' => 'dropdown-item'));
+							?>
+						</div>
+					</div>
+				</li>
 				<!-- Paramètres -->
 				<li class="nav-item dropdown">
 					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
@@ -157,11 +180,8 @@
 								array('controller' => 'affectations', 'action' => 'index'),
 								array('class' => 'dropdown-item')
 							);
-							echo $this->Html->link(
-								'La liste des etapes',
-								array('controller' => 'etapes', 'action' => 'index'),
-								array('class' => 'dropdown-item')
-							);
+							echo $this->Html->link('La liste des etapes', array('controller' => 'etapes', 'action' => 'index'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Gestion des blocs opératoires', array('controller' => 'blocs', 'action' => 'index'), array('class' => 'dropdown-item'));
 							?>
 						</div>
 					</div>
@@ -204,7 +224,7 @@
 							<div class="profile-infos">
 								<small class="name-profile">
 									<?php
-									echo AuthComponent::user('nom') . ' ' . AuthComponent::user('prenom');
+									echo AuthComponent::user('name');
 									?>
 								</small>
 								<small class="role-profile">
@@ -230,20 +250,80 @@
 
 			<!-- Flash Messages -->
 			<div id="flash-messages">
-				<?php
-				echo $this->Flash->render('info');
-				echo $this->Flash->render('default');
-				echo $this->Flash->render('success');
-				echo $this->Flash->render('warning');
-				echo $this->Flash->render('error');
-				?>
+				<?php echo $this->Session->flash(); ?>
 			</div>
 
 			<!-- Content -->
 			<div id="content">
 				<?php echo $this->fetch('content'); ?>
 			</div>
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+			<hr />
+			<hr />
+			<hr />
+
+			<div class="row">
+				<div class='col-12'>
+					<?php
+					echo $this->Form->create('Dev', array('url' => array('controller' => 'devs', 'action' => 'add')));
+					echo $this->Form->input('user', array('placeholder' => ''));
+					//met le nom du controller et de la view
+					echo $this->Form->hidden('controller', array('value' => $this->request->params['controller']));
+					echo $this->Form->hidden('view', array('value' => $this->request->params['action']));
+					?>
+				</div>
+				<div class='col-12'>
+					<?php
+					echo $this->Form->input('commentaire', array('placeholder' => ''));
+					?>
+				</div>
+				<div class='col-12'>
+					<?php
+					//met le lien de la page
+					echo $this->Form->input('lien', array('placeholder' => '', 'value' => $this->request->here));
+					?>
+				</div>
+
+				<div class='submit-section'>
+					<button type="submit" class="btn btn-submit">
+						<i class="fa-solid fa-paper-plane"></i> Envoyer
+					</button>
+				</div><?php echo $this->Form->end(); ?>
+			</div>
+
+			<div class="col-md-12 filter-section"></div>
+			<div class="content-table">
+				<table class="table table-akdital">
+					<thead>
+						<tr>
+							<th>user</th>
+							<th>commentaire</th>
+							<th>lien</th>
+							<th>Date</th>
+							<th class="actions">#</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+						$devs = $this->requestAction('devs/get/'.$this->request->params['controller']."/".$this->request->params['action']);
+						foreach ($devs as $dev): ?>
+							<tr>
+								<td><?php echo $dev['Dev']['user']; ?></td>
+								<td><?php echo $dev['Dev']['commentaire']; ?></td>
+								<td><?php echo $dev['Dev']['lien']; ?></td>
+								<td><?php echo $dev['Dev']['created']; ?></td>
+								<td class="actions">
+									<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $dev['Dev']['id'])); ?>
+									/
+									<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $dev['Dev']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $dev['Dev']['id']))); ?>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
+
 	</div>
 
 	<!-- Mobile Menu Toggle (for responsive) -->

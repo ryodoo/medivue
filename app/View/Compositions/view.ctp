@@ -24,16 +24,8 @@
 </div>
 <div class="col-md-3">
 	<div class="info">
-		<label>Set</label>
-		<span>
-			<?php echo $this->Html->link($composition['Set']['id'], array('controller' => 'sets', 'action' => 'view', $composition['Set']['id'])); ?>
-		</span>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="info">
-		<label><?php echo __('Ref'); ?></label>
-		<span><?php echo h($composition['Composition']['ref']); ?></span>
+		<label><?php echo __('Code'); ?></label>
+		<span><?php echo h($composition['Composition']['code']); ?></span>
 	</div>
 </div>
 <div class="col-md-3">

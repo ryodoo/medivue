@@ -9,7 +9,6 @@ App::uses('AppModel', 'Model');
  * @property Machine $Machine
  * @property Etape $Etape
  * @property Boucle $Boucle
- * @property Set $Set
  * @property Anomaly $Anomaly
  * @property Log $Log
  */
@@ -62,13 +61,6 @@ class Evenement extends AppModel {
 		'Boucle' => array(
 			'className' => 'Boucle',
 			'foreignKey' => 'boucle_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Set' => array(
-			'className' => 'Set',
-			'foreignKey' => 'set_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

@@ -23,7 +23,6 @@
 																				<th>machine_id</th>
 																				<th>etape_id</th>
 																				<th>boucle_id</th>
-																				<th>set_id</th>
 																				<th>remarque</th>
 																				<th>resultat</th>
 																				<th>created</th>
@@ -50,9 +49,6 @@
 		</td>
 		<td>
 			<?php echo $this->Html->link($evenement['Boucle']['id'], array('controller' => 'boucles', 'action' => 'view', $evenement['Boucle']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($evenement['Set']['id'], array('controller' => 'sets', 'action' => 'view', $evenement['Set']['id'])); ?>
 		</td>
 		<td><?php echo $evenement['Evenement']['remarque']; ?></td>
 		<td><?php echo $evenement['Evenement']['resultat']; ?></td>

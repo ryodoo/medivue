@@ -1,6 +1,6 @@
 <div class="demandes index"></div>
 <div class="page-header">
-	<h1 class="title-page">Demandes</h1>
+	<h1 class="title-page">Liste demandes en attente de traitement</h1>
 	<span class="slogan"></span>
 </div>
 <div class="col-md-5">

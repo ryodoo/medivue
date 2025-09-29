@@ -49,7 +49,7 @@ class EvenementsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Evenement->create();
 			if ($this->Evenement->save($this->request->data)) {
-				$this->Session->setFlash(__('The evenement has been saved.'));
+				$this->Flash->success(__('The evenement has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Flash->error(__('The evenement could not be saved. Please, try again.'));
@@ -61,8 +61,7 @@ class EvenementsController extends AppController {
 		$machines = $this->Evenement->Machine->find('list');
 		$etapes = $this->Evenement->Etape->find('list');
 		$boucles = $this->Evenement->Boucle->find('list');
-		$sets = $this->Evenement->Set->find('list');
-		$this->set(compact('users', 'compositions', 'postes', 'machines', 'etapes', 'boucles', 'sets'));
+		$this->set(compact('users', 'compositions', 'postes', 'machines', 'etapes', 'boucles'));
 	}
 
 /**
@@ -78,7 +77,7 @@ class EvenementsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Evenement->save($this->request->data)) {
-				$this->Session->setFlash(__('The evenement has been saved.'));
+				$this->Flash->success(__('The evenement has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Flash->error(__('The evenement could not be saved. Please, try again.'));
@@ -93,8 +92,7 @@ class EvenementsController extends AppController {
 		$machines = $this->Evenement->Machine->find('list');
 		$etapes = $this->Evenement->Etape->find('list');
 		$boucles = $this->Evenement->Boucle->find('list');
-		$sets = $this->Evenement->Set->find('list');
-		$this->set(compact('users', 'compositions', 'postes', 'machines', 'etapes', 'boucles', 'sets'));
+		$this->set(compact('users', 'compositions', 'postes', 'machines', 'etapes', 'boucles'));
 	}
 
 /**
@@ -110,7 +108,7 @@ class EvenementsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Evenement->delete($id)) {
-			$this->Session->setFlash(__('The evenement has been deleted.'));
+			$this->Flash->success(__('The evenement has been deleted.'));
 		} else {
 			$this->Flash->error(__('The evenement could not be deleted. Please, try again.'));
 		}

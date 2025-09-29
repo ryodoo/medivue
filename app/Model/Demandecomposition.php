@@ -1,13 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Demandeset Model
+ * Demandecomposition Model
  *
- * @property Set $Set
- * @property Composition $Composition
  * @property Demande $Demande
+ * @property Composition $Composition
  */
-class Demandeset extends AppModel {
+class Demandecomposition extends AppModel {
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -18,9 +17,9 @@ class Demandeset extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Set' => array(
-			'className' => 'Set',
-			'foreignKey' => 'set_id',
+		'Demande' => array(
+			'className' => 'Demande',
+			'foreignKey' => 'demande_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -28,13 +27,6 @@ class Demandeset extends AppModel {
 		'Composition' => array(
 			'className' => 'Composition',
 			'foreignKey' => 'composition_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Demande' => array(
-			'className' => 'Demande',
-			'foreignKey' => 'demande_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

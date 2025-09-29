@@ -55,11 +55,10 @@ class AffectationsController extends AppController {
 				$this->Flash->error(__('The affectation could not be saved. Please, try again.'));
 			}
 		}
-		$sets = $this->Affectation->Set->find('list');
 		$specialites = $this->Affectation->Specialite->find('list');
 		$medecins = $this->Affectation->Medecin->find('list');
 		$compositions = $this->Affectation->Composition->find('list');
-		$this->set(compact('sets', 'specialites', 'medecins', 'compositions'));
+		$this->set(compact('specialites', 'medecins', 'compositions'));
 	}
 
 /**
@@ -84,11 +83,10 @@ class AffectationsController extends AppController {
 			$options = array('conditions' => array('Affectation.' . $this->Affectation->primaryKey => $id));
 			$this->request->data = $this->Affectation->find('first', $options);
 		}
-		$sets = $this->Affectation->Set->find('list');
 		$specialites = $this->Affectation->Specialite->find('list');
 		$medecins = $this->Affectation->Medecin->find('list');
 		$compositions = $this->Affectation->Composition->find('list');
-		$this->set(compact('sets', 'specialites', 'medecins', 'compositions'));
+		$this->set(compact('specialites', 'medecins', 'compositions'));
 	}
 
 /**

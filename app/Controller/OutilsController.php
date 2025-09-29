@@ -3,14 +3,14 @@
 App::uses('AppController', 'Controller');
 class OutilsController extends AppController
 {
-    function generatecodebar($type='set')
+    function generatecodebar($type='composition')
     {
-        if($type=='set')
-            $code=1;
-        elseif($type=='composition')
+        if($type=='composition')
             $code=2;
-        else
+        elseif($type=='bloc')
             $code=3;
+        else
+            $code=4;
         $this->loadModel('Config');
         $config = $this->Config->find('first');
         $codebar_start=10;

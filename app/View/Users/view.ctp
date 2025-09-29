@@ -18,7 +18,7 @@
 	<div class="info">
 		<label>Role</label>
 		<span>
-			<?php echo $this->Html->link($user['Role']['id'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
+			<?php echo $this->Html->link($user['Role']['role'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
 		</span>
 	</div>
 </div>
@@ -48,14 +48,14 @@
 </div>
 <div class="col-md-3">
 	<div class="info">
-		<label><?php echo __('Created'); ?></label>
-		<span><?php echo h($user['User']['created']); ?></span>
+		<label><?php echo __('Ref'); ?></label>
+		<span><?php echo h($user['User']['ref']); ?></span>
 	</div>
 </div>
 <div class="col-md-3">
 	<div class="info">
-		<label><?php echo __('Code'); ?></label>
-		<span><?php echo h($user['User']['code']); ?></span>
+		<label><?php echo __('Created'); ?></label>
+		<span><?php echo h($user['User']['created']); ?></span>
 	</div>
 </div>
 				</div>
