@@ -55,7 +55,8 @@ class DemandesController extends AppController
 		$this->loadModel('Composition');
 		$this->Composition->recursive = -1;
 		$compositions = $this->Composition->find('list');
-		$this->set(compact('compositions', 'demande'));
+		$users = $this->Demande->User->find("list");
+		$this->set(compact('compositions', 'demande','users'));
 	}
 
 	/**

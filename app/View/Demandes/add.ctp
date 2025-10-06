@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class='col-12'>
 					<?php
-					echo $this->Form->input('user_id', array("type" => "text", "label" => "Code bar user", 'placeholder' => ''));
+					echo $this->Form->input('user_id', array("type" => "text", "label" => "Code bar demandeur", 'placeholder' => ''));
 					?>
 				</div>
 				<div class='col-12'>

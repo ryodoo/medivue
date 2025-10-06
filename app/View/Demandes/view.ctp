@@ -23,24 +23,31 @@
 							</span>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="info">
-							<label><?php echo __('Livrer Par'); ?></label>
-							<span><?php echo h($demande['Demande']['livrer_par']); ?></span>
+					<?php if (isset($users[$demande['Demande']['livrer_par']])): ?>
+						<div class="col-md-3">
+							<div class="info">
+								<label><?php echo __('Livrer Par'); ?></label>
+								<span>
+									<?php echo $users[$demande['Demande']['livrer_par']]; ?></span>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info">
-							<label><?php echo __('Stock Par'); ?></label>
-							<span><?php echo h($demande['Demande']['stock_par']); ?></span>
+					<?php endif; ?>
+					<?php if (isset($users[$demande['Demande']['stock_par']])): ?>
+						<div class="col-md-3">
+							<div class="info">
+								<label><?php echo __('Stock Par'); ?></label>
+								<span><?php echo $users[$demande['Demande']['stock_par']]; ?></span>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info">
-							<label><?php echo __('Recu Par'); ?></label>
-							<span><?php echo h($demande['Demande']['recu_par']); ?></span>
+					<?php endif; ?>
+					<?php if (isset($users[$demande['Demande']['recu_par']])): ?>
+						<div class="col-md-3">
+							<div class="info">
+								<label><?php echo __('Recu Par'); ?></label>
+								<span><?php echo $users[$demande['Demande']['recu_par']]; ?></span>
+							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 					<div class="col-md-3">
 						<div class="info">
 							<label>Specialite</label>
@@ -69,24 +76,29 @@
 							<span><?php echo h($demande['Demande']['etat']); ?></span>
 						</div>
 					</div>
+
 					<div class="col-md-3">
 						<div class="info">
 							<label><?php echo __('Date demande'); ?></label>
 							<span><?php echo h($demande['Demande']['created']); ?></span>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="info">
-							<label><?php echo __('Date livraison'); ?></label>
-							<span><?php echo h($demande['Demande']['date_livraison']); ?></span>
+					<?php if (isset($demande['Demande']['date_livraison'])): ?>
+						<div class="col-md-3">
+							<div class="info">
+								<label><?php echo __('Date livraison'); ?></label>
+								<span><?php echo h($demande['Demande']['date_livraison']); ?></span>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info">
-							<label><?php echo __('Date confirmation livraison'); ?></label>
-							<span><?php echo h($demande['Demande']['confirmer_livraison']); ?></span>
+					<?php endif; ?>
+					<?php if (isset($demande['Demande']['confirmer_livraison'])): ?>
+						<div class="col-md-3">
+							<div class="info">
+								<label><?php echo __('Date confirmation livraison'); ?></label>
+								<span><?php echo h($demande['Demande']['confirmer_livraison']); ?></span>
+							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
