@@ -12,13 +12,11 @@ class TrempagesController extends AppController
 {
 	public function index()
 	{
-		if ($this->request->is('post')) 
-		{
+		if ($this->request->is('post')) {
 			$bac = $this->Trempage->Bac->findByRef($this->request->data['Trempage']['bac_ref']);
 			if ($bac) {
 				return $this->redirect(array('action' => 'view', $bac['Bac']['id']));
-			}
-			else {
+			} else {
 				$this->Session->setFlash(__('code introuvable de Bac.'));
 				return $this->redirect($this->referer());
 			}
@@ -74,7 +72,7 @@ class TrempagesController extends AppController
 				$this->Trempage->saveField('commentaire_retirer', $commentaire_retirer);
 				$compositionController = new CompositionsController();
 				$this->Trempage->recursive = -1;
-				$tempe=$this->Trempage->findById($v);
+				$tempe = $this->Trempage->findById($v);
 				$comp = $compositionController->check_and_update($tempe['Trempage']['composition_id'], "Dans la zone sale");
 			}
 			$this->Session->setFlash(__('Retrait des compositions enregistré.'));
@@ -93,8 +91,10 @@ class TrempagesController extends AppController
 	public function add()
 	{
 		$compositions = [];
+		
 		if ($this->request->is('post')) {
-			if (empty($this->request->data['Trempage']['user_id'])) {
+			if (isset($this->request->data['Trempage']['bloc_id'])) {
+				
 				$this->loadModel('Bloc');
 				$this->loadModel('Demandecomposition');
 				$bloc = $this->Bloc->findByRef($this->request->data['Trempage']['bloc_id']);
