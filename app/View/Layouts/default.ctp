@@ -20,11 +20,9 @@
 	<?php
 	echo $this->Html->css('fontawesome');
 	echo $this->Html->css('bootstrap');
-	echo $this->Html->css('akdital_style');
 	echo $this->Html->css('flash.min');
 	echo $this->Html->script('flash.min');
 	echo $this->Html->script('flash.min');
-	echo $this->Html->css('sidebar_styles');
 	?>
 
 	<style>
@@ -304,7 +302,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
+						<?php
 						$devs = $this->requestAction('devs/get/'.$this->request->params['controller']."/".$this->request->params['action']);
 						foreach ($devs as $dev): ?>
 							<tr>
