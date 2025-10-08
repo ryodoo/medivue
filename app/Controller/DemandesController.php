@@ -3,7 +3,8 @@ App::uses('AppController', 'Controller');
 App::uses('CompositionsController', 'Controller');
 
 class DemandesController extends AppController
-{
+{ 
+	
 
 
 	public function index()
@@ -55,7 +56,8 @@ class DemandesController extends AppController
 		$this->loadModel('Composition');
 		$this->Composition->recursive = -1;
 		$compositions = $this->Composition->find('list');
-		$this->set(compact('compositions', 'demande'));
+		$users = $this->Demande->User->find("list");
+		$this->set(compact('compositions', 'demande','users'));
 	}
 
 	/**

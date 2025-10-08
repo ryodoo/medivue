@@ -1,0 +1,9 @@
+---
+auto_deploy: yes
+deployment:
+  tasks:
+    - export GIT_REPO="https://github.com/ryodoo/medivue.git"
+    - export GIT_BRANCH="main"
+    - /usr/local/cpanel/3rdparty/bin/git pull origin $GIT_BRANCH
+    - /bin/cp -R * //demo.medivue.ma
+    - /bin/chmod -R 755 //demo.medivue.ma
