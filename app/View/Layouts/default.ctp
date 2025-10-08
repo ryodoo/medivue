@@ -20,6 +20,7 @@
 	<?php
 	echo $this->Html->css('fontawesome');
 	echo $this->Html->css('bootstrap');
+	echo $this->Html->css('akdital_style');
 	echo $this->Html->css('flash.min');
 	echo $this->Html->script('flash.min');
 	echo $this->Html->script('flash.min');
@@ -84,11 +85,11 @@
 				<!-- Zone Stokage -->
 				<li class="nav-item dropdown">
 					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-						data-bs-target="#parametres" aria-expanded="false">
+						data-bs-target="#stockage" aria-expanded="false">
 						<?php echo $parametres_icon; ?>
 						Zone Stokage
 					</button>
-					<div class="collapse" id="parametres">
+					<div class="collapse" id="stockage">
 						<div class="dropdown-menu show">
 							<?php echo $this->Html->link(
 								'Liste des demandes',
@@ -101,15 +102,32 @@
 				<!-- Bloc opératoire -->
 				<li class="nav-item dropdown">
 					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
-						data-bs-target="#parametres" aria-expanded="false">
+						data-bs-target="#bloc" aria-expanded="false">
 						<?php echo $parametres_icon; ?>
 						Bloc opératoire
 					</button>
-					<div class="collapse" id="parametres">
+					<div class="collapse" id="bloc">
 						<div class="dropdown-menu show">
 							<?php
 							echo $this->Html->link('Liste des demandes', array('controller' => 'demandes', 'action' => 'index_bloc'), array('class' => 'dropdown-item'));
 							echo $this->Html->link('ajouter une demande', array('controller' => 'demandes', 'action' => 'add'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Trempages', array('controller' => 'trempages', 'action' => 'add'), array('class' => 'dropdown-item'));
+							?>
+						</div>
+					</div>
+				</li>
+				<!-- Zone sale -->
+				<li class="nav-item dropdown">
+					<button class="nav-link dropdown-toggle" type="button" data-bs-toggle="collapse"
+						data-bs-target="#zone_sale" aria-expanded="false">
+						<?php echo $parametres_icon; ?> Zone sale
+					</button>
+					<div class="collapse" id="zone_sale">
+						<div class="dropdown-menu show">
+							<?php
+							echo $this->Html->link('La liste des bacs', array('controller' => 'trempages', 'action' => 'index'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Démarrer scanner', array('controller' => 'zonesales', 'action' => 'add'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Lancer autolaveur', array('controller' => 'zonesales', 'action' => 'autolaveur'), array('class' => 'dropdown-item'));
 							?>
 						</div>
 					</div>
@@ -180,6 +198,8 @@
 								array('class' => 'dropdown-item')
 							);
 							echo $this->Html->link('La liste des etapes', array('controller' => 'etapes', 'action' => 'index'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Gestion des blocs opératoires', array('controller' => 'blocs', 'action' => 'index'), array('class' => 'dropdown-item'));
+							echo $this->Html->link('Gestion des bacs', array('controller' => 'bacs', 'action' => 'index'), array('class' => 'dropdown-item'));
 							echo $this->Html->link('Gestion des blocs opératoires', array('controller' => 'blocs', 'action' => 'index'), array('class' => 'dropdown-item'));
 							?>
 						</div>
