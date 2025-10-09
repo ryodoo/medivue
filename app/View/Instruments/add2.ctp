@@ -18,7 +18,7 @@
 		body {
 			font-family: "Poppins", sans-serif;
 			font-weight: 300;
-			background: #eee;
+			background: #f8fafc;
 			height: 100vh;
 			display: flex;
 			flex-direction: column;
@@ -27,7 +27,7 @@
 
 		/* Progress Bar */
 		.progress-container {
-			background: transparent;
+			background: white;
 			border-bottom: 1px solid #e5e7eb;
 			padding: 0.5rem 2rem;
 			display: flex;
@@ -104,6 +104,7 @@
 			padding: 0;
 			width: 100%;
 			overflow: hidden;
+			min-height: 0;
 		}
 
 		.page-content {
@@ -117,6 +118,9 @@
 			padding: 1.5rem 2rem;
 			height: 100%;
 			overflow: hidden;
+			position: relative;
+			flex: 1;
+			min-height: 0;
 		}
 
 		.page-content.active {
@@ -126,47 +130,58 @@
 		/* Page 2 Specific Styles */
 		#page2 {
 			max-width: 100%;
-			background: white;
-			padding: 2rem 4rem;
+			background: transparent;
+			padding: 1.5rem 2rem;
 			border-radius: 0;
 			box-shadow: none;
 			margin: 0;
-			height: 100%;
-			overflow: auto;
+			height: auto;
+			overflow-y: auto;
+			display: none;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex: 1;
+			min-height: 0;
+		}
+
+		#page2.active {
+			display: flex;
 		}
 
 		.form-content-wrapper {
 			display: flex;
 			flex-direction: row;
-			gap: 4rem;
+			gap: 2.5rem;
 			width: 100%;
-			max-width: 1400px;
-			height: 100%;
-			align-items: flex-start;
+			max-width: 1800px;
 			margin: 0 auto;
+			min-height: fit-content;
+			align-items: start;
+			background: white;
+			padding: 2rem;
+			border-radius: 12px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 		}
 
 		.photo-section {
-			width: 380px;
-			flex-shrink: 0;
-			background: transparent;
-			padding: 0;
 			display: flex;
 			flex-direction: column;
+			gap: 1rem;
+			width: 200px;
+			flex-shrink: 0;
 		}
 
 		.photo-section-title {
-			font-size: 1rem;
+			font-size: 0.9rem;
 			font-weight: 600;
 			color: #1a202c;
-			margin-bottom: 1rem;
-			text-align: left;
+			text-align: center;
 		}
 
 		.photo-capture-area {
 			position: relative;
 			width: 100%;
-			height: 280px;
+			height: 200px;
 			border: 2px dashed #cbd5e1;
 			border-radius: 12px;
 			background: #f8fafc;
@@ -175,6 +190,12 @@
 			justify-content: center;
 			cursor: pointer;
 			overflow: hidden;
+			transition: all 0.3s ease;
+		}
+
+		.photo-capture-area:hover {
+			border-color: #10b981;
+			background: #f0fdf4;
 		}
 
 		.photo-preview {
@@ -193,7 +214,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			gap: 0.625rem;
+			gap: 1rem;
 		}
 
 		.photo-placeholder.hidden {
@@ -201,33 +222,34 @@
 		}
 
 		.photo-placeholder svg {
-			width: 56px;
-			height: 56px;
+			width: 40px;
+			height: 40px;
 			color: #cbd5e1;
 		}
 
 		.photo-placeholder-text {
 			color: #94a3b8;
-			font-size: 0.9rem;
+			font-size: 0.75rem;
+			font-weight: 500;
 		}
 
 		.change-photo-btn {
 			position: absolute;
-			bottom: 1rem;
-			right: 1rem;
+			bottom: 0.65rem;
+			right: 0.65rem;
 			background: white;
 			color: #64748b;
 			border: none;
-			padding: 0.625rem;
+			padding: 0.6rem;
 			border-radius: 50%;
-			width: 40px;
-			height: 40px;
+			width: 36px;
+			height: 36px;
 			display: none;
 			align-items: center;
 			justify-content: center;
 			cursor: pointer;
 			transition: all 0.2s;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 			outline: none;
 		}
 
@@ -238,7 +260,7 @@
 		.change-photo-btn:hover {
 			background: #f8fafc;
 			color: #10b981;
-			transform: scale(1.05);
+			transform: scale(1.08);
 		}
 
 		.change-photo-btn:active {
@@ -247,8 +269,8 @@
 		}
 
 		.change-photo-btn svg {
-			width: 18px;
-			height: 18px;
+			width: 15px;
+			height: 15px;
 			stroke: currentColor;
 			fill: none;
 			stroke-width: 2;
@@ -258,20 +280,17 @@
 
 		.form-section {
 			flex: 1;
-			background: transparent;
-			padding: 0;
 			text-align: left;
 			display: flex;
 			flex-direction: column;
-			overflow: hidden;
-			min-width: 0;
-			max-width: 900px;
+			overflow: visible;
+			min-height: fit-content;
 		}
 
 		.form-checkbox {
 			display: flex;
 			align-items: center;
-			gap: 0.625rem;
+			gap: 0.65rem;
 			margin-bottom: 1.25rem;
 			padding: 0;
 			background: transparent;
@@ -287,7 +306,7 @@
 		}
 
 		.form-checkbox label {
-			font-size: 0.95rem;
+			font-size: 0.9rem;
 			color: #1a202c;
 			font-weight: 500;
 			cursor: pointer;
@@ -296,9 +315,8 @@
 
 		.form-grid {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(3, 1fr);
 			gap: 1.25rem 2rem;
-			flex: 1;
 			align-content: start;
 			overflow: visible;
 		}
@@ -315,18 +333,18 @@
 		}
 
 		.form-label {
-			font-size: 0.875rem;
-			font-weight: 500;
+			font-size: 0.825rem;
+			font-weight: 600;
 			color: #475569;
-			margin-bottom: 0.5rem;
+			margin-bottom: 0.45rem;
 		}
 
 		.form-input {
 			width: 100%;
-			padding: 0.75rem 1rem;
+			padding: 0.7rem 1rem;
 			border: 1.5px solid #e5e7eb;
 			border-radius: 8px;
-			font-size: 0.9rem;
+			font-size: 0.875rem;
 			background: white;
 			color: #1a202c;
 			transition: all 0.2s;
@@ -354,7 +372,7 @@
 			background: white;
 			border: 1.5px solid #e5e7eb;
 			border-top: none;
-			border-radius: 0 0 8px 8px;
+			border-radius: 0 0 10px 10px;
 			max-height: 200px;
 			overflow-y: auto;
 			display: none;
@@ -368,9 +386,9 @@
 		}
 
 		.autocomplete-item {
-			padding: 0.75rem 1rem;
+			padding: 0.85rem 1.25rem;
 			cursor: pointer;
-			font-size: 0.9rem;
+			font-size: 0.95rem;
 			color: #1a202c;
 			transition: background 0.15s;
 		}
@@ -384,17 +402,23 @@
 		}
 
 		.autocomplete-item:last-child {
-			border-radius: 0 0 6px 6px;
+			border-radius: 0 0 8px 8px;
 		}
 
 		.scan-icon-container {
-			width: 50px;
-			height: 50px;
+			width: 120px;
+			height: 120px;
 			margin-bottom: 0.75rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			flex-shrink: 0;
+		}
+
+		.scan-icon-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 
 		.scan-icon-container svg {
@@ -449,7 +473,7 @@
 		.bottom-section {
 			background: white;
 			border-top: 1px solid #e5e7eb;
-			padding: 1.25rem 4rem;
+			padding: 0.85rem 4rem;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -461,10 +485,10 @@
 			display: inline-flex;
 			align-items: center;
 			gap: 0.5rem;
-			padding: 0.75rem 1.75rem;
+			padding: 0.65rem 1.5rem;
 			border: 1.5px solid #e5e7eb;
 			border-radius: 8px;
-			font-size: 0.95rem;
+			font-size: 0.9rem;
 			font-weight: 500;
 			cursor: pointer;
 			transition: all 0.2s ease;
@@ -501,13 +525,20 @@
 		}
 
 		.back-button svg, .next-button svg {
-			width: 18px;
-			height: 18px;
+			width: 16px;
+			height: 16px;
 			stroke: currentColor;
 			fill: none;
 			stroke-width: 2;
 			stroke-linecap: round;
 			stroke-linejoin: round;
+		}
+		.back-button:focus, .next-button:focus {
+			outline: none;
+		}
+
+		.back-button:active, .next-button:active {
+			outline: none;
 		}
 
 		.help-text {
@@ -515,7 +546,7 @@
 			left: 50%;
 			transform: translateX(-50%);
 			color: #94a3b8;
-			font-size: 0.9rem;
+			font-size: 0.85rem;
 		}
 
 		/* Notification Toast System */
@@ -649,44 +680,91 @@
 		}
 
 		/* Responsive adjustments */
-		@media (max-height: 800px) {
+		@media (max-width: 1400px) {
 			#page2 {
-				padding: 1.5rem 3rem;
+				padding: 1.25rem 1.5rem;
 			}
 
 			.form-content-wrapper {
-				gap: 3rem;
+				gap: 2rem;
+				padding: 1.75rem;
 			}
 
 			.photo-section {
-				width: 320px;
+				width: 180px;
 			}
 
 			.photo-capture-area {
-				height: 240px;
+				height: 180px;
+			}
+		}
+
+		@media (max-width: 1200px) {
+			#page2 {
+				padding: 1rem 1.25rem;
 			}
 
 			.form-grid {
-				gap: 1rem 1.75rem;
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.photo-section {
+				width: 160px;
+			}
+
+			.photo-capture-area {
+				height: 160px;
+			}
+
+			.form-content-wrapper {
+				gap: 1.5rem;
+				padding: 1.5rem;
 			}
 
 			.form-input {
 				padding: 0.65rem 0.9rem;
-				font-size: 0.875rem;
+				font-size: 0.85rem;
 			}
 
 			.form-label {
 				font-size: 0.8rem;
-				margin-bottom: 0.4rem;
+			}
+		}
+
+		@media (max-width: 900px) {
+			#page2 {
+				padding: 1rem;
+			}
+
+			.form-content-wrapper {
+				gap: 1.25rem;
+				padding: 1.25rem;
+			}
+
+			.photo-section {
+				width: 140px;
+			}
+
+			.photo-capture-area {
+				height: 140px;
+			}
+
+			.form-grid {
+				gap: 1rem 1.5rem;
+			}
+
+			.form-input {
+				padding: 0.6rem 0.85rem;
+				font-size: 0.8rem;
+			}
+
+			.form-label {
+				font-size: 0.75rem;
+				margin-bottom: 0.35rem;
 			}
 
 			.form-textarea {
 				min-height: 70px;
-				max-height: 100px;
-			}
-
-			.bottom-section {
-				padding: 1rem 3rem;
 			}
 		}
 
@@ -710,12 +788,11 @@
 			}
 
 			.container {
-				padding: 1rem;
+				padding: 0;
 			}
 
 			#page2 {
 				padding: 1rem;
-				overflow-y: auto;
 			}
 
 			.form-content-wrapper {
@@ -725,6 +802,15 @@
 
 			.photo-section {
 				width: 100%;
+			}
+
+			.photo-capture-area {
+				height: 200px;
+			}
+
+			.form-grid {
+				grid-template-columns: 1fr;
+				gap: 1.25rem;
 			}
 
 			.bottom-section {
@@ -775,12 +861,7 @@
 	<!-- Page 1: Authentification -->
 	<div class="page-content active" id="page1">
 		<div class="scan-icon-container">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<rect x="3" y="5" width="18" height="14" rx="2"/>
-				<line x1="3" y1="10" x2="21" y2="10"/>
-				<line x1="7" y1="15" x2="7" y2="15"/>
-				<line x1="11" y1="15" x2="17" y2="15"/>
-			</svg>
+			<img src="/img/scanlogo.png" alt="Scanner">
 		</div>
 
 		<h1 class="scan-title">Authentification</h1>
@@ -799,7 +880,7 @@
 
 	<!-- Page 2: Photo et Formulaire -->
 	<div class="page-content" id="page2">
-		<form id="instrumentForm" method="post" enctype="multipart/form-data">
+		<form id="instrumentForm" method="post" enctype="multipart/form-data" style="width: 100%;">
 			<div class="form-content-wrapper">
 				<div class="photo-section">
 					<div class="photo-section-title">Photo de l'instrument</div>
@@ -822,6 +903,7 @@
 						</button>
 					</div>
 				</div>
+
 				<div class="form-section">
 					<div class="form-checkbox">
 						<input type="checkbox" id="instrumentSansCode" name="data[Instrument][sans_code]">
@@ -919,7 +1001,6 @@
 	let currentStep = 1;
 	let fournisseursData = [];
 
-	// Get the base URL for AJAX calls (adjust this to match your CakePHP setup)
 	const baseUrl = window.location.origin;
 
 	const badgeInput = document.getElementById('badgeInput');
@@ -930,7 +1011,6 @@
 	const photoPreview = document.getElementById('photoPreview');
 	const instrumentForm = document.getElementById('instrumentForm');
 
-	// Fournisseur autocomplete elements
 	const fournisseurNameInput = document.getElementById('fournisseurName');
 	const fournisseurIdInput = document.getElementById('fournisseurId');
 	const fournisseurDropdown = document.getElementById('fournisseurDropdown');
@@ -973,7 +1053,6 @@
 		}
 	}
 
-	// Load fournisseurs data on page load
 	function loadFournisseurs() {
 		$.ajax({
 			url: baseUrl + '/instruments/getFournisseurs',
@@ -990,19 +1069,16 @@
 		});
 	}
 
-	// Load fournisseurs when page loads
 	$(document).ready(function() {
 		loadFournisseurs();
 	});
 
-	// Fournisseur autocomplete functionality
 	fournisseurNameInput.addEventListener('input', function() {
 		const searchTerm = this.value.toLowerCase().trim();
 
 		console.log('Search term:', searchTerm);
 		console.log('Fournisseurs data:', fournisseursData);
 
-		// Clear the hidden ID field when typing
 		fournisseurIdInput.value = '';
 
 		if (searchTerm.length === 0) {
@@ -1010,7 +1086,6 @@
 			return;
 		}
 
-		// Check if we have data
 		if (!fournisseursData || fournisseursData.length === 0) {
 			console.log('No fournisseurs data available');
 			fournisseurDropdown.innerHTML = '<div class="autocomplete-item" style="pointer-events: none; color: #94a3b8;">Aucun fournisseur trouvé</div>';
@@ -1035,7 +1110,6 @@
 		}
 	});
 
-	// Handle autocomplete item click
 	fournisseurDropdown.addEventListener('click', function(e) {
 		if (e.target.classList.contains('autocomplete-item')) {
 			const id = e.target.getAttribute('data-id');
@@ -1044,19 +1118,15 @@
 			fournisseurNameInput.value = name;
 			fournisseurIdInput.value = id;
 			fournisseurDropdown.classList.remove('active');
-
-			showNotification('success', 'Fournisseur sélectionné', name);
 		}
 	});
 
-	// Close dropdown when clicking outside
 	document.addEventListener('click', function(e) {
 		if (!fournisseurNameInput.contains(e.target) && !fournisseurDropdown.contains(e.target)) {
 			fournisseurDropdown.classList.remove('active');
 		}
 	});
 
-	// Handle keyboard navigation in autocomplete
 	let selectedIndex = -1;
 	fournisseurNameInput.addEventListener('keydown', function(e) {
 		const items = fournisseurDropdown.querySelectorAll('.autocomplete-item');
@@ -1115,7 +1185,6 @@
 		});
 	}
 
-	// Photo capture functionality
 	const photoCaptureArea = document.getElementById('photoCaptureArea');
 	const photoPlaceholder = document.getElementById('photoPlaceholder');
 	const changePhotoBtn = document.getElementById('changePhotoBtn');
@@ -1140,7 +1209,6 @@
 				photoPreview.classList.add('active');
 				photoPlaceholder.classList.add('hidden');
 				changePhotoBtn.classList.add('active');
-				showNotification('success', 'Photo capturée', 'Image ajoutée avec succès');
 				checkInputs();
 			};
 			reader.readAsDataURL(file);
@@ -1151,7 +1219,21 @@
 		if (currentStep === 1) {
 			nextButton.disabled = badgeInput.value.trim().length === 0;
 		} else if (currentStep === 2) {
-			nextButton.disabled = !photoPreview.classList.contains('active');
+			const hasPhoto = photoPreview.classList.contains('active');
+
+			const code = document.getElementById('code').value.trim();
+			const ref = document.getElementById('ref').value.trim();
+			const name = document.getElementById('name').value.trim();
+			const nomCommercial = document.getElementById('nomCommercial').value.trim();
+			const fournisseurName = document.getElementById('fournisseurName').value.trim();
+			const codeFournisseur = document.getElementById('codeFournisseur').value.trim();
+			const taille = document.getElementById('taille').value.trim();
+			const prix = document.getElementById('prix').value.trim();
+			const numLot = document.getElementById('numLot').value.trim();
+
+			const allFieldsFilled = code && ref && name && nomCommercial && fournisseurName && codeFournisseur && taille && prix && numLot;
+
+			nextButton.disabled = !(hasPhoto && allFieldsFilled);
 		} else if (currentStep === 3) {
 			nextButton.disabled = false;
 			nextButton.innerHTML = 'Terminer <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
@@ -1160,6 +1242,36 @@
 
 	badgeInput.addEventListener('input', function() {
 		checkInputs();
+	});
+
+	const formInputs = [
+		document.getElementById('code'),
+		document.getElementById('ref'),
+		document.getElementById('name'),
+		document.getElementById('nomCommercial'),
+		document.getElementById('fournisseurName'),
+		document.getElementById('codeFournisseur'),
+		document.getElementById('taille'),
+		document.getElementById('prix'),
+		document.getElementById('numLot')
+	];
+
+	formInputs.forEach(input => {
+		input.addEventListener('input', function() {
+			if (currentStep === 2) {
+				checkInputs();
+			}
+		});
+	});
+
+	fournisseurDropdown.addEventListener('click', function(e) {
+		if (e.target.classList.contains('autocomplete-item')) {
+			setTimeout(() => {
+				if (currentStep === 2) {
+					checkInputs();
+				}
+			}, 100);
+		}
 	});
 
 	badgeInput.addEventListener('keypress', function(e) {
@@ -1201,7 +1313,6 @@
 					updateProgress();
 					showPage(currentStep);
 					badgeInput.disabled = false;
-					// Load fournisseurs when entering step 2
 					if (fournisseursData.length === 0) {
 						loadFournisseurs();
 					}
@@ -1209,7 +1320,6 @@
 				return;
 			}
 
-			// Move to next step (step 2 -> step 3) without submitting
 			if (currentStep === 2) {
 				currentStep++;
 				updateProgress();
@@ -1218,11 +1328,23 @@
 			}
 		}
 
-		// Submit form only on step 3 when clicking "Terminer"
 		if (currentStep === 3 && !this.disabled) {
 			submitForm();
 		}
 	});
+
+	function resetFormCompletely() {
+		photoPreview.classList.remove('active');
+		photoPlaceholder.classList.remove('hidden');
+		changePhotoBtn.classList.remove('active');
+		photoInput.value = '';
+
+		fournisseurNameInput.value = '';
+		fournisseurIdInput.value = '';
+		instrumentForm.reset();
+
+		badgeInput.value = '';
+	}
 
 	function submitForm() {
 		const formData = new FormData(instrumentForm);
@@ -1239,8 +1361,8 @@
 			success: function(response) {
 				showNotification('success', 'Succès', 'Instrument enregistré avec succès');
 
-				// Reset form and return to step 1 after a delay
 				setTimeout(() => {
+					resetFormCompletely();
 					currentStep = 1;
 					updateProgress();
 					showPage(1);
@@ -1283,13 +1405,6 @@
 			badgeInput.focus();
 			nextButton.innerHTML = 'Suivant <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>';
 		} else if (pageNumber === 2) {
-			photoPreview.classList.remove('active');
-			photoPlaceholder.classList.remove('hidden');
-			changePhotoBtn.classList.remove('active');
-			photoInput.value = '';
-			fournisseurNameInput.value = '';
-			fournisseurIdInput.value = '';
-			instrumentForm.reset();
 			nextButton.innerHTML = 'Suivant <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>';
 		}
 
