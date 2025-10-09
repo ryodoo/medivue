@@ -1361,13 +1361,9 @@
 			success: function(response) {
 				showNotification('success', 'Succès', 'Instrument enregistré avec succès');
 
+				// Redirect to index page after successful submission
 				setTimeout(() => {
-					resetFormCompletely();
-					currentStep = 1;
-					updateProgress();
-					showPage(1);
-					nextButton.disabled = false;
-					nextButton.innerHTML = 'Suivant <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>';
+					window.location.href = baseUrl + '/instruments/index';
 				}, 2000);
 			},
 			error: function(xhr, status, error) {
@@ -1379,7 +1375,13 @@
 	}
 
 	backButton.addEventListener('click', function() {
-		if (currentStep > 1) {
+		if (currentStep === 1) {
+			// Redirect to index page when clicking back on step 1
+			showNotification('info', 'Retour', 'Retour à la page d\'accueil');
+			setTimeout(() => {
+				window.location.href = baseUrl + '/instruments/index';
+			}, 1000);
+		} else if (currentStep > 1) {
 			currentStep--;
 			updateProgress();
 			showPage(currentStep);
